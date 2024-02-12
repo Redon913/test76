@@ -1,0 +1,19 @@
+package com.RestTest.restAPI.exception;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+@ControllerAdvice
+public class CloudVendorExceptionHandler {
+	
+	@ExceptionHandler(value = {CloudVendorNotFoundException.class})
+	public ResponseEntity<Object> handleCloudVendorNotFound(CloudVendorNotFoundException CVNFException){
+		CloudVendorException cloudVendorException = new CloudVendorException(
+				CVNFException.getMessage(),
+				CVNFException.getCause(), 
+				HttpStatus.NOT_FOUND);
+	return new ResponseEntity<>(cloudVendorException, HttpStatus.NOT_FOUND);
+	}
+}
