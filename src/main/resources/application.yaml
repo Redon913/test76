@@ -1,6 +1,6 @@
 spring:
  datasource:
-  url: jdbc:mysql://localhost:3306/cloudvendor?mysql-connector allowPublicKeyRetrieval=true&useSSL=false
+  url: jdbc:mysql://localhost:3306/cloudvendor?allowPublicKeyRetrieval=true&useSSL=false
   username: root
   password: root
 
